@@ -10,10 +10,12 @@ defineProps<{
 const solutionInput = ref("");
 const isDialogOpen = ref();
 const isFocused = ref(false);
+const snackbar = ref(false);
 
 function checkInput() {
-  const solved = solutionInput.value == "puzzlewantsyou"
+  const solved = solutionInput.value.toLowerCase() == "puzzlewantsyou"
   isDialogOpen.value = solved
+  snackbar.value = !solved
 }
 
 function enterCharacter(event) {
@@ -41,6 +43,17 @@ function enterCharacter(event) {
 
 <template>
   <div>
+    <v-snackbar
+      v-model="snackbar"
+      text="Deine Eingabe war leider nicht richtig!"
+      color="error"
+      variant="tonal"
+      location="top end"
+      rounded="lg"
+      timeout="1000"
+      height="80"
+    >
+    </v-snackbar>
     <v-row>
       <v-col class="d-flex justify-center">
         <h1>Eingabe Lösung</h1>

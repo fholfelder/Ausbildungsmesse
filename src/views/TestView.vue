@@ -5,12 +5,7 @@ import SolutionInput from '../components/SolutionInput.vue'
 
 <template>
   <div>
-    <v-row>
-      <v-col cols="12" class="d-flex justify-center">
-        <img alt="puzzleYOU" class="logo" src="@/assets/logo.png" height="250" />
-      </v-col>
-    </v-row>
-    <v-row>
+    <v-row class="mt-12 mb-12">
         <v-col class="d-flex justify-center">
           <h1>Lös den Code und dreh am Rad!!!</h1>
         </v-col>
@@ -28,4 +23,3 @@ import SolutionInput from '../components/SolutionInput.vue'
     </v-row>
   </div>
 </template>
-

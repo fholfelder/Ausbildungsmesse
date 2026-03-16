@@ -1,20 +1,43 @@
 <script setup lang="ts">
+import { useQRCode } from '@vueuse/integrations/useQRCode';
+import { useRouter } from 'vuetify/lib/composables/router.mjs';
+
 const props = defineProps(['modelValue'])
 const emit = defineEmits(['update:modelValue'])
+const router = useRouter();
+
+const qrcode = useQRCode('https://www.puzzleyou.de/jobs', {width: 250})
+
+function onSubmit() {
+  emit('update:modelValue', false);
+  router.push('/');
+}
 </script>
 
 <template>
   <div>
-    <v-dialog max-width="500" v-model="props.modelValue">
+    <v-dialog max-width="700" v-model="props.modelValue">
       <template v-slot:default="{ isActive }">
-        <v-card title="puzzleWantsYOU">
-          <v-card-text>
-            Richtig gehört... Wir suchen dich!
+        <v-card>
+          <v-card-title>
+            <h3>puzzleWantsYOU - Richtig gelesen! 🧩</h3>
+          </v-card-title>
+          <v-divider />
+          <v-card-text class="text-center">
+            <h3>Wir suchen dich!</h3>
+            <br>
+            <p>Hol dir deinen Gewinn am <b>Glücksrad</b> ab.</p>
+            <br>
+            <p>Aber pssst... Wir haben auch den <b>passenden Ausbildungsplatz</b> für deine Zukunft!</p>
+            <br>
+            <p>Scanne einfach den Code:</p>
+            <img class="mt-6 mb-2 rounded border" :src="qrcode" alt="QR Code">
+            <p>https://www.puzzleyou.de/jobs</p>
           </v-card-text>
-  
+          <v-divider />
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn @click="emit('update:modelValue', false)" color="success">Alles klar</v-btn>
+            <v-btn @click="onSubmit" color="success" variant="elevated">Alles klar</v-btn>
           </v-card-actions>
         </v-card>
       </template>

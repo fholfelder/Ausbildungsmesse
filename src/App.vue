@@ -1,10 +1,29 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <RouterView />
+  <v-app>
+    <router-view v-slot="{ Component }">
+      <transition name="page" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
+  </v-app>
 </template>
 
-<style scoped>
+<style>
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.35s ease;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateX(-40px);
+}
 </style>

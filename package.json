@@ -16,7 +16,9 @@
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
+    "@vueuse/integrations": "^14.2.1",
     "pinia": "^3.0.4",
+    "qrcode": "^1.5.4",
     "simple-keyboard": "^3.8.107",
     "simple-keyboard-layouts": "^3.4.161",
     "vue": "^3.5.27",

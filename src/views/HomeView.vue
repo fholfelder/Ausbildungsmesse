@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import Exercise from '../components/Exercise.vue'
-import SolutionInput from '../components/SolutionInput.vue'
+import { useRouter } from 'vuetify/lib/composables/router.mjs';
+
+const router = useRouter()
 </script>
 
 <template>
@@ -11,10 +12,41 @@ import SolutionInput from '../components/SolutionInput.vue'
       </v-col>
     </v-row>
     <v-row>
-        <v-col class="d-flex justify-center">
-          <h1>Lös den Code und dreh am Rad!!!</h1>
-        </v-col>
+      <v-col class="d-flex justify-center">
+        <h1>Lös den Code und dreh am Rad!!!</h1>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col class="d-flex justify-center">
+        <v-card class="card-animation" @click="router.push('test')">
+          <v-card-item class="go-card text-center d-flex flex-column align-center justify-center">
+            Los gehts!
+          </v-card-item>
+        </v-card>
+      </v-col>
     </v-row>
   </div>
 </template>
+<style>
+.go-card {
+  aspect-ratio: 1;
+  width: 250px;
+  font-size: 28px;
+}
+.card-animation {
+  animation: pulseCard 1.5s ease-in-out infinite;
+  background:#1F82A5;
+}
 
+@keyframes pulseCard {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+</style>
