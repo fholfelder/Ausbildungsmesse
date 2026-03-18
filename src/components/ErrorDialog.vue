@@ -21,7 +21,7 @@ watch(
     if (val) {
       timeout = setTimeout(() => {
         onSubmit()
-      }, 5000);
+      }, 2000);
     } else {
       if (timeout) {
         clearTimeout(timeout);
