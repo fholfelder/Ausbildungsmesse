@@ -5,7 +5,6 @@
 <script>
 import Keyboard from "simple-keyboard";
 import "simple-keyboard/build/css/index.css";
-import layout from "simple-keyboard-layouts/build/layouts/german";
 
 export default {
   name: "SimpleKeyboard",
@@ -67,5 +66,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+.hg-button {
+  font-size: 22px;
+}
 </style>
