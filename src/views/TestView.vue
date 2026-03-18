@@ -1,12 +1,21 @@
 <script setup lang="ts">
-import Exercise from '../components/Exercise.vue'
-import SolutionInput from '../components/SolutionInput.vue'
+import Exercise from '../components/Exercise.vue';
+import SolutionInput from '../components/SolutionInput.vue';
+import { useRouter } from 'vuetify/lib/composables/router.mjs';
+
+const router = useRouter();
+
 </script>
 
 <template>
   <div>
-    <v-row class="mt-12 mb-12">
-        <v-col class="d-flex justify-center">
+    <v-row>
+      <v-col class="d-flex justify-end">
+        <img alt="puzzleYOU" class="logo" src="@/assets/logo.png" height="120" @click="router.push('/')" />
+      </v-col>
+    </v-row>
+    <v-row class="mb-12">
+        <v-col class="text-center d-flex flex-column align-center justify-center">
           <h1>Lös den Code und dreh am Rad!!!</h1>
         </v-col>
     </v-row>

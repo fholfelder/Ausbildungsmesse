@@ -18,7 +18,7 @@ const router = useRouter()
     </v-row>
     <v-row>
       <v-col class="d-flex justify-center">
-        <v-card class="card-animation" @click="router.push('test')">
+        <v-card class="card-animation mt-12" @click="router.push('test')" color="#1F82A5">
           <v-card-item class="go-card text-center d-flex flex-column align-center justify-center">
             Los gehts!
           </v-card-item>
@@ -30,12 +30,11 @@ const router = useRouter()
 <style>
 .go-card {
   aspect-ratio: 1;
-  width: 250px;
-  font-size: 28px;
+  width: 350px;
+  font-size: 32px;
 }
 .card-animation {
   animation: pulseCard 1.5s ease-in-out infinite;
-  background:#1F82A5;
 }
 
 @keyframes pulseCard {

@@ -25,16 +25,15 @@ export default {
     this.keyboard = new Keyboard(this.keyboardClass, {
       onChange: this.onChange,
       onKeyPress: this.onKeyPress,
-      // ...layout
       layout: {
         'default': [
-          'q w e r t z u i o p [ ] {bksp}',
+          'q w e r t z u i o p {bksp}',
           '{lock} a s d f g h j k l {enter}',
           '{shift} y x c v b n m , . / {shift}',
           '{space}'
         ],
         'shift': [
-          'Q W E R T Z U I O P { } {bksp}',
+          'Q W E R T Z U I O P {bksp}',
           '{lock} A S D F G H J K L {enter}',
           '{shift} Y X C V B N M < > ? {shift}',
           '{space}'
@@ -49,9 +48,6 @@ export default {
     onKeyPress(button) {
       this.$emit("onKeyPress", button);
 
-      /**
-       * If you want to handle the shift and caps lock buttons
-       */
       if (button === "{shift}" || button === "{lock}") this.handleShift();
     },
     handleShift() {
@@ -71,6 +67,5 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 </style>

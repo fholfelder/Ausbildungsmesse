@@ -13,7 +13,6 @@ let timeout: ReturnType<typeof setTimeout> | null = null;
 
 function onSubmit() {
   emit('update:modelValue', false);
-  router.push('/');
 }
 
 watch(
@@ -21,8 +20,8 @@ watch(
   (val) => {
     if (val) {
       timeout = setTimeout(() => {
-        onSubmit();
-      }, 60000);
+        onSubmit()
+      }, 5000);
     } else {
       if (timeout) {
         clearTimeout(timeout);
@@ -39,24 +38,16 @@ watch(
       <template v-slot:default="{ isActive }">
         <v-card>
           <v-card-title>
-            <h3>puzzleWantsYOU - Richtig gelesen! 🧩</h3>
+            <h3>Das war leider falsch</h3>
           </v-card-title>
           <v-divider />
-          <v-card-text class="text-center">
-            <h3>Wir suchen dich!</h3>
-            <br>
-            <p>Hol dir deinen Gewinn am <b>Glücksrad</b> ab.</p>
-            <br>
-            <p>Aber pssst... Wir haben auch den <b>passenden Ausbildungsplatz</b> für deine Zukunft!</p>
-            <br>
-            <p>Scanne einfach den Code:</p>
-            <img class="mt-6 mb-2 rounded border" :src="qrcode" alt="QR Code">
-            <p>https://www.puzzleyou.de/jobs</p>
+          <v-card-text>
+            <h3>Versuche es gerne erneut!</h3>
           </v-card-text>
           <v-divider />
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn @click="onSubmit" color="success" variant="elevated">Alles klar</v-btn>
+            <v-btn @click="onSubmit" color="success" variant="elevated">Nochmal!</v-btn>
           </v-card-actions>
         </v-card>
       </template>

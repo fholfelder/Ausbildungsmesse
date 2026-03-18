@@ -49,7 +49,7 @@ text.REPLACE("🎂", "z")`
     <v-row>
       <v-col>
         <v-card class="codeCard">
-          <v-card-text style="white-space: pre-line;">
+          <v-card-text style="white-space: pre-line; font-size: 16px;">
             <code>{{ code }}</code>
           </v-card-text>
         </v-card>
