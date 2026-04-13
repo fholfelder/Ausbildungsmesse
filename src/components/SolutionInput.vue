@@ -17,10 +17,8 @@ const errorMessages = ref();
 function checkInput() {
   const solved = solutionInput.value.toLowerCase() == props.solution.toLowerCase()
   isDialogOpen.value = solved
-  if (!solved) {
-    // errorMessages.value = ["Das war leider falsch!"]
+  if (!solved)
     showError.value = true;
-  }
 }
 
 function enterCharacter(event) {
@@ -48,17 +46,6 @@ function enterCharacter(event) {
 
 <template>
   <div>
-    <!-- <v-snackbar
-      v-model="showError"
-      text="Deine Eingabe war leider nicht richtig!"
-      color="error"
-      variant="tonal"
-      location="top end"
-      rounded="lg"
-      timeout="1000"
-      height="80"
-    >
-    </v-snackbar> -->
     <ErrorDialog v-model="showError"></ErrorDialog>
     <v-row>
       <v-col class="d-flex justify-center">

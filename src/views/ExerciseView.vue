@@ -2,11 +2,34 @@
 import Exercise from '../components/Exercise.vue';
 import SolutionInput from '../components/SolutionInput.vue';
 import { useRouter } from 'vuetify/lib/composables/router.mjs';
+import { useCookies } from '@vueuse/integrations/useCookies'
 
 const router = useRouter();
+const latestSolution = useCookies(["latestSolution"]);
 
-const solution = "felix";
+const wordPool = [
+  "puzzlewantsyou",
+  "puzzleneedsyou",
+  "ausbildungforyou"
+];
 
+function generateSolution() {
+  if (wordPool.length === 0) return "";
+
+  let randomSolution = "";
+
+  do {
+    const randomIndex = Math.floor(Math.random() * wordPool.length);
+    randomSolution = wordPool[randomIndex]!;
+  } while (randomSolution === latestSolution.get('latestSolution'));
+
+  console.log(randomSolution);
+
+  latestSolution.set('latestSolution', randomSolution);
+  return randomSolution;
+}
+
+const solution = generateSolution();
 </script>
 
 <template>

@@ -18,7 +18,7 @@ const router = useRouter()
     </v-row>
     <v-row>
       <v-col class="d-flex justify-center">
-        <v-card class="card-animation mt-12" @click="router.push('test')" color="#1F82A5">
+        <v-card class="card-animation mt-12" @click="router.push('exercise')" color="#1F82A5">
           <v-card-item class="go-card text-center d-flex flex-column align-center justify-center">
             Los gehts!
           </v-card-item>
