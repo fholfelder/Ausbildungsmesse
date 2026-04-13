@@ -13,7 +13,7 @@ let timeout: ReturnType<typeof setTimeout> | null = null;
 
 function onSubmit() {
   emit('update:modelValue', false);
-  router.push('/');
+  router!.push('/');
 }
 
 watch(

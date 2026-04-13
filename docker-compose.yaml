@@ -1,0 +1,7 @@
+services:
+  vue-app:
+    build: .
+    container_name: ausbildungsmesse
+    ports:
+      - "3210:3210"
+    restart: unless-stopped

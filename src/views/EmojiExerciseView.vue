@@ -36,7 +36,7 @@ const solution = generateSolution();
   <div>
     <v-row>
       <v-col class="d-flex justify-end">
-        <img alt="puzzleYOU" class="logo" src="@/assets/logo.png" height="120" @click="router.push('/')" />
+        <img alt="puzzleYOU" class="logo" src="@/assets/logo.png" height="120" @click="router!.push('/')" />
       </v-col>
     </v-row>
     <v-row class="mb-12">

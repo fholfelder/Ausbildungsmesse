@@ -21,7 +21,7 @@ function checkInput() {
     showError.value = true;
 }
 
-function enterCharacter(event) {
+function enterCharacter(event: any) {
   isFocused.value = true;
   switch(event) {
     case "{bksp}":
