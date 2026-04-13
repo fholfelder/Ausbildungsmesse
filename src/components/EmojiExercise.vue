@@ -1,28 +1,31 @@
 <script setup lang="ts">
 import { Alphabet } from '@/enums/AlphabetEnum';
+import CodeCard from './CodeCard.vue';
 
 defineProps<{
   solution: string
 }>()
 
 function createExerciseTextForSolution(solution: string) {
-  let text = `Wie lautet der Wert von text nach Ausführung dieses Programms?
+  let text = "Wie lautet der Wert von text nach Ausführung dieses Programms?\n\ntext = ";
 
-text = "`;
-
-  const _solution: string = solution.toUpperCase();
-  for (let character of _solution) {
-    text += Alphabet[character as keyof typeof Alphabet];
-  }
+  // "Encode" solution
+  const _solution: string[] = solution.toUpperCase().split("");
+  text += _solution
+    .map((character) => Alphabet[character as keyof typeof Alphabet])
+    .join("");
 
   text += `"
 
-  `;
+`;
 
-  for (const [letter, emoji] of Object.entries(Alphabet)) {
-    text += `text.REPLACE("${emoji}", "${letter.toLowerCase()}")
-    `;
-  }
+  // Print alphabet
+  text += Object.entries(Alphabet)
+    .map(
+      ([letter, emoji]) =>
+        `text.REPLACE("${emoji}", "${letter.toLowerCase()}")`
+    )
+    .join("\n");
 
   return text;
 }
@@ -37,19 +40,9 @@ text = "`;
     </v-row>
     <v-row>
       <v-col>
-        <v-card class="codeCard">
-          <v-card-text style="white-space: pre-line; font-size: 16px;">
-            <code>{{ createExerciseTextForSolution(solution) }}</code>
-          </v-card-text>
-        </v-card>
+        <code-card :model-value="createExerciseTextForSolution(solution)"></code-card>
       </v-col>
     </v-row>
   </div>
 </template>
 
-<style scoped>
-.codeCard {
-  background-color: #f0f0f0;
-  font-family: "Segoe UI Mono";
-}
-</style>

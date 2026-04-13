@@ -12,7 +12,8 @@ const solutionKey = "latestEmojiExerciseSolution";
 const wordPool = [
   "puzzlewantsyou",
   "puzzleneedsyou",
-  "ausbildungforyou"
+  "ausbildungforyou",
+  "girlsday"
 ];
 
 function generateSolution() {

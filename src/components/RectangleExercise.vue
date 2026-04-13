@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import CodeCard from './CodeCard.vue';
+
 
 function createExerciseText() {
   let text = `Wie viele Dreiecke verstecken sich hier?
@@ -8,8 +10,7 @@ function createExerciseText() {
    /\\  /\\
   /__\\/__\\
  /\\  /\\  /\\
-/__\\/__\\/__\\
-  `;
+/__\\/__\\/__\\`;
 
   return text;
 }
@@ -24,25 +25,8 @@ function createExerciseText() {
     </v-row>
     <v-row>
       <v-col>
-        <v-card class="codeCard">
-          <v-card-text class="codeText">
-            <code>{{ createExerciseText() }}</code>
-          </v-card-text>
-        </v-card>
+        <code-card :model-value="createExerciseText()"></code-card>
       </v-col>
     </v-row>
   </div>
 </template>
-
-<style scoped>
-.codeCard {
-  background-color: #f0f0f0;
-  font-family: "Segoe UI Mono";
-}
-
-.codeText {
-  font-family: monospace;
-  font-size: 16px;
-  white-space: pre;
-}
-</style>
