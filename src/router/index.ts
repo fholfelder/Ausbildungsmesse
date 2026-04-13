@@ -1,6 +1,14 @@
 import { createWebHistory, createRouter } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
-import ExerciseView from "@/views/ExerciseView.vue";
+import EmojiExerciseView from "@/views/EmojiExerciseView.vue";
+
+const exerciseRoutes = [
+  {
+    path: "/emoji-exercise",
+    name: "Exercise",
+    component: EmojiExerciseView,
+  },
+]
 
 const routes = [
   {
@@ -8,16 +16,20 @@ const routes = [
     name: "Home",
     component: HomeView,
   },
-  {
-    path: "/exercise",
-    name: "Exercise",
-    component: ExerciseView,
-  },
+  ...exerciseRoutes
 ];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+router.beforeEach((to, _, next) => {
+  if (to.path === '/exercise') {
+    next(exerciseRoutes[Math.floor(Math.random() * exerciseRoutes.length)]?.path)
+  } else {
+    next()
+  }
 });
 
 export default router;

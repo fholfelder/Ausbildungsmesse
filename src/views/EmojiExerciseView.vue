@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import Exercise from '../components/Exercise.vue';
+import EmojiExercise from '../components/EmojiExercise.vue';
 import SolutionInput from '../components/SolutionInput.vue';
 import { useRouter } from 'vuetify/lib/composables/router.mjs';
 import { useCookies } from '@vueuse/integrations/useCookies'
 
 const router = useRouter();
 const latestSolution = useCookies(["latestSolution"]);
+
+const solutionKey = "latestEmojiExerciseSolution";
 
 const wordPool = [
   "puzzlewantsyou",
@@ -21,11 +23,9 @@ function generateSolution() {
   do {
     const randomIndex = Math.floor(Math.random() * wordPool.length);
     randomSolution = wordPool[randomIndex]!;
-  } while (randomSolution === latestSolution.get('latestSolution'));
+  } while (randomSolution === latestSolution.get(solutionKey));
 
-  console.log(randomSolution);
-
-  latestSolution.set('latestSolution', randomSolution);
+  latestSolution.set(solutionKey, randomSolution);
   return randomSolution;
 }
 
@@ -47,7 +47,7 @@ const solution = generateSolution();
     <v-row>
       <v-col cols=1></v-col>
       <v-col cols="5">
-        <Exercise :solution="solution"></Exercise>
+        <EmojiExercise :solution="solution"></EmojiExercise>
       </v-col>
       <v-divider vertical></v-divider>
       <v-col cols="5">
