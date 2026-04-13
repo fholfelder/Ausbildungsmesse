@@ -36,7 +36,6 @@ function enterCharacter(event) {
     case "{tab}":
     case "{lock}":
     case "{shift}":
-      console.log("HELLLO")
       break;
     default:
       solutionInput.value = solutionInput.value + event;

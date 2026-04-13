@@ -39,6 +39,7 @@ export default {
         ]
       }
     });
+    document.querySelector('.hg-button-enter').textContent = 'enter';
   },
   methods: {
     onChange(input) {
