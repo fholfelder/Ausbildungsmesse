@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import { Alphabet } from '@/enums/AlphabetEnum';
 import { ref } from 'vue'
 
 defineProps<{
-  msg: string
+  solution: string
 }>()
 
 const code = ref(
@@ -37,6 +38,28 @@ text.REPLACE("🎪", "x")
 text.REPLACE("🎩", "y")
 text.REPLACE("🎂", "z")`
 )
+
+function createExerciseTextForSolution(solution: string) {
+  let text = `Wie lautet der Wert von text nach Ausführung dieses Programms?
+
+text = "`;
+
+  const _solution: string = solution.toUpperCase();
+  for (let character of _solution) {
+    text += Alphabet[character as keyof typeof Alphabet];
+  }
+
+  text += `"
+
+  `;
+
+  for (const [letter, emoji] of Object.entries(Alphabet)) {
+    text += `text.REPLACE("${emoji}", "${letter.toLowerCase()}")
+    `;
+  }
+
+  return text;
+}
 </script>
 
 <template>
@@ -50,7 +73,7 @@ text.REPLACE("🎂", "z")`
       <v-col>
         <v-card class="codeCard">
           <v-card-text style="white-space: pre-line; font-size: 16px;">
-            <code>{{ code }}</code>
+            <code>{{ createExerciseTextForSolution(solution) }}</code>
           </v-card-text>
         </v-card>
       </v-col>

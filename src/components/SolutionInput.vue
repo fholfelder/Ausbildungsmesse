@@ -4,9 +4,9 @@ import Keyboard from './Keyboard.vue'
 import SuccessDialog from './SuccessDialog.vue'
 import ErrorDialog from './ErrorDialog.vue'
 
-defineProps<{
-  msg: string
-}>()
+const props = defineProps<{
+  solution: string
+}>();
 
 const solutionInput = ref("");
 const isDialogOpen = ref();
@@ -15,7 +15,7 @@ const showError = ref(false);
 const errorMessages = ref();
 
 function checkInput() {
-  const solved = solutionInput.value.toLowerCase() == "puzzlewantsyou"
+  const solved = solutionInput.value.toLowerCase() == props.solution.toLowerCase()
   isDialogOpen.value = solved
   if (!solved) {
     // errorMessages.value = ["Das war leider falsch!"]

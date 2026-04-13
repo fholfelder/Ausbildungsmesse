@@ -5,6 +5,8 @@ import { useRouter } from 'vuetify/lib/composables/router.mjs';
 
 const router = useRouter();
 
+const solution = "felix";
+
 </script>
 
 <template>
@@ -22,11 +24,11 @@ const router = useRouter();
     <v-row>
       <v-col cols=1></v-col>
       <v-col cols="5">
-        <Exercise></Exercise>
+        <Exercise :solution="solution"></Exercise>
       </v-col>
       <v-divider vertical></v-divider>
       <v-col cols="5">
-        <SolutionInput></SolutionInput>
+        <SolutionInput :solution="solution"></SolutionInput>
       </v-col>
       <v-col cols=1></v-col>
     </v-row>
