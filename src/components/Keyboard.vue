@@ -2,7 +2,7 @@
   <div :class="keyboardClass"></div>
 </template>
 
-<script>
+<script lang="ts">
 import Keyboard from "simple-keyboard";
 import "simple-keyboard/build/css/index.css";
 
@@ -53,8 +53,8 @@ export default {
       if (button === "{shift}" || button === "{lock}") this.handleShift();
     },
     handleShift() {
-      let currentLayout = this.keyboard.options.layoutName;
-      let shiftToggle = currentLayout === "default" ? "shift" : "default";
+      const currentLayout = this.keyboard.options.layoutName;
+      const shiftToggle = currentLayout === "default" ? "shift" : "default";
 
       this.keyboard.setOptions({
         layoutName: shiftToggle

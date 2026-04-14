@@ -3,7 +3,7 @@ import CodeCard from './CodeCard.vue';
 
 
 function createExerciseText() {
-  let text = `Wie viele Dreiecke verstecken sich hier?
+  const text = `Wie viele Dreiecke verstecken sich hier?
 
      /\\
     /__\\

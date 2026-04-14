@@ -35,8 +35,8 @@ watch(
 
 <template>
   <div>
-    <v-dialog max-width="700" v-model="props.modelValue">
-      <template v-slot:default="{ isActive }">
+    <v-dialog max-width="700" :model-value="props.modelValue">
+      <template v-slot:default>
         <v-card>
           <v-card-title>
             <h3>puzzleWantsYOU - Richtig gelesen! 🧩</h3>

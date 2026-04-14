@@ -1,13 +1,8 @@
 <script setup lang="ts">
-import { useQRCode } from '@vueuse/integrations/useQRCode';
-import { useRouter } from 'vuetify/lib/composables/router.mjs';
 import { watch } from 'vue';
 
 const props = defineProps(['modelValue'])
 const emit = defineEmits(['update:modelValue'])
-const router = useRouter();
-
-const qrcode = useQRCode('https://www.puzzleyou.de/jobs', { width: 250 })
 
 let timeout: ReturnType<typeof setTimeout> | null = null;
 
@@ -34,8 +29,8 @@ watch(
 
 <template>
   <div>
-    <v-dialog max-width="700" v-model="props.modelValue">
-      <template v-slot:default="{ isActive }">
+    <v-dialog max-width="700" :model-value="props.modelValue">
+      <template v-slot:default>
         <v-card>
           <v-card-title>
             <h3>Das war leider falsch</h3>
