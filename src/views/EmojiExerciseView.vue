@@ -12,8 +12,9 @@ const solutionKey = "latestEmojiExerciseSolution";
 const wordPool = [
   "puzzlewantsyou",
   "puzzleneedsyou",
-  "ausbildungforyou",
-  "girlsday"
+  //"ausbildungforyou",
+  "girlsday",
+  "gymnew"
 ];
 
 function generateSolution() {
@@ -42,7 +43,7 @@ const solution = generateSolution();
     </v-row>
     <v-row class="mb-12">
         <v-col class="text-center d-flex flex-column align-center justify-center">
-          <h1>Lös den Code und dreh am Rad!!!</h1>
+          <h1>Kannst du den Code lösen?</h1>
         </v-col>
     </v-row>
     <v-row>

@@ -13,7 +13,7 @@ const router = useRouter()
     </v-row>
     <v-row>
       <v-col class="d-flex justify-center">
-        <h1>Lös den Code und dreh am Rad!!!</h1>
+        <h1>Kannst du das Rätsel lösen?</h1>
       </v-col>
     </v-row>
     <v-row>
